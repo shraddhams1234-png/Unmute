@@ -28,6 +28,17 @@ export default function SisterAccessScreen({ setScreen, sisterContacts, saveSist
       return;
     }
 
+    const [localPart, domain] = input.split('@');
+    const validDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com', 'icloud.com', 'pes.edu', 'live.com', 'protonmail.com'];
+    const isValidDomain = validDomains.some(d => domain.toLowerCase() === d);
+    const isRandomLooking = localPart.length > 3 && /^[a-z]{6,}$/.test(localPart) && !localPart.includes('.');
+
+    if (!isValidDomain) {
+      setMessageType('error');
+      setMessage('⚠️ Please enter a valid email from Gmail, Yahoo, Outlook etc!!');
+      return;
+    }
+
     if (sisterContacts.includes(input)) {
       setMessageType('error');
       setMessage('⚠️ You\'ve already invited this email!! Try a different one 🌸');

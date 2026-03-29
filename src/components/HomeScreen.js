@@ -1,4 +1,6 @@
-export default function HomeScreen({ setScreen }) {
+export default function HomeScreen({ setScreen, onRecord }) {
+  const goRecord = onRecord || (() => setScreen('recording'));
+
   return (
     <div className="screen">
       <div className="greeting">
@@ -7,7 +9,7 @@ export default function HomeScreen({ setScreen }) {
       </div>
       <div className="record-wrap">
         <div className="ring-outer"><div className="ring-inner">
-          <button className="record-btn" onClick={()=>setScreen('recording')}>
+          <button className="record-btn" onClick={goRecord}>
             <span className="mic-icon">🎙️</span>
             <span className="record-label">RECORD</span>
           </button>
@@ -15,7 +17,7 @@ export default function HomeScreen({ setScreen }) {
         <div className="record-hint">tap to speak your truth</div>
       </div>
       <div className="modes">
-        <div className="mode-card mode-active" onClick={()=>setScreen('recording')}>
+        <div className="mode-card mode-active" onClick={goRecord}>
           <div className="mode-icon">🎙️</div>
           <div className="mode-text">
             <div className="mode-title">Just for Me</div>
@@ -23,7 +25,7 @@ export default function HomeScreen({ setScreen }) {
           </div>
           <span className="mode-arrow">›</span>
         </div>
-        <div className="mode-card" onClick={()=>setScreen('circle')}>
+        <div className="mode-card" onClick={() => setScreen('circle')}>
           <div className="mode-icon">🌸</div>
           <div className="mode-text">
             <div className="mode-title">Send to SisterCircle</div>
@@ -31,7 +33,7 @@ export default function HomeScreen({ setScreen }) {
           </div>
           <span className="mode-arrow">›</span>
         </div>
-        <div className="mode-card" onClick={()=>setScreen('journal')}>
+        <div className="mode-card" onClick={() => setScreen('journal')}>
           <div className="mode-icon">📖</div>
           <div className="mode-text">
             <div className="mode-title">My Journal</div>
