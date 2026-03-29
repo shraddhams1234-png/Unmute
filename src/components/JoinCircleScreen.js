@@ -10,7 +10,7 @@ export default function JoinCircleScreen({ setScreen, setCircleId, setUserNickna
   const [tab, setTab] = useState('create');
   const [nickname, setNickname] = useState(userNickname || '');
   const [inviteEmail, setInviteEmail] = useState('');
-  const [joinCode, setJoinCode] = useState('');
+  const [joinCgitode, setJoinCode] = useState('');
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState('');
   const [sending, setSending] = useState(false);
